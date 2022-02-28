@@ -1,12 +1,15 @@
-import React,{useState} from 'react'
+import React from 'react';
+
+import { useDispatch } from 'react-redux';
+import { saveImages } from '../Store/Actions';
+
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 
 export default function useCamera() {
-    
-    const [imageUri, setimageUri] = useState("");
-    const [imageUriGallary, setimageUriGallary] = useState("");
 
-    const takePhotoFromCamera = () => {
+  const dispatch = useDispatch();
+
+  const takePhotoFromCamera = () => {
     const options = {
       storageOptions: {
         path: 'images',
@@ -25,13 +28,17 @@ export default function useCamera() {
         console.log('User tapped custom button: ', response.customButton);
       } else {
         const source = { uri: 'data:image/jpeg;base64,' + response.assets[0].base64 };
-        setimageUri(source);
+        let cameraImage = {
+          id: Math.floor(Math.random() * 10),
+          image: source
+        }
+        dispatch(saveImages(cameraImage));
       }
     });
   }
 
   const takePhotoFromGallery = () => {
-    const options = {
+     const options = {
       storageOptions: {
         path: 'images',
         mediaType: 'photo',
@@ -50,16 +57,17 @@ export default function useCamera() {
       }
       else {
         const source = { uri: 'data:image/jpeg;base64,' + response.assets[0].base64 };
-        setimageUriGallary(source);
-        console.log(source.uri)
-        console.log(source)
-
+        let gallaryImage = {
+          id: Math.floor(Math.random() * 10),
+          image: source
+        }
+        dispatch(saveImages(gallaryImage));
       }
     })
   };
 
-  const features  = [takePhotoFromCamera,imageUri,takePhotoFromGallery,imageUriGallary];
-  
+  const features = [takePhotoFromCamera,  takePhotoFromGallery];
+
   return features;
 }
 

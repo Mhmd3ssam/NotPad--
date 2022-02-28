@@ -7,12 +7,12 @@ import useCamera from '../../Hooks/useCamera';
 import ActionSheet from '../../components/ActionSheet';
 
 const Home = ()=>{
-    const [takePhotoFromCamera,imageUri,takePhotoFromGallery,imageUriGallary] = useCamera();
+    const [takePhotoFromCamera,takePhotoFromGallery] = useCamera();
 
     return(
         <NativeBaseProvider>
             <ActionSheet camera={takePhotoFromCamera} gallery={takePhotoFromGallery}/>
-            <Camera imageUri={imageUri} imageUriGallary={imageUriGallary}/>
+            <Camera />
         </NativeBaseProvider>
     )
 }
