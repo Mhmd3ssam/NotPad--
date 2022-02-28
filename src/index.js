@@ -11,6 +11,7 @@ const App = () => {
         <NativeBaseProvider>
             <Text>{"NotPad--"}</Text>
             <ActionSheet camera={takePhotoFromCamera} gallery={takePhotoFromGallery}/>
+            <Camera imageUri={imageUri} imageUriGallary={imageUriGallary}/>
         </NativeBaseProvider>
 
     </>);
