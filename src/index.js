@@ -1,18 +1,17 @@
 import React from 'react';
-import {Text,View} from 'react-native';
+import { Text, View } from 'react-native';
+import { NativeBaseProvider } from "native-base";
 
-
-
-
-
+import ActionSheet from './components/ActionSheet';
 const App = () => {
 
 
-  return (
-    <View>
-     <Text>{"NotPad--"}</Text>
-    </View>
-  );
+    return (
+        <NativeBaseProvider>
+            <Text>{"NotPad--"}</Text>
+            <ActionSheet camera="" gallery=""/>
+        </NativeBaseProvider>
+    );
 };
 
 
