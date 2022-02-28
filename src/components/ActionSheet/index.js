@@ -17,7 +17,7 @@ const ActionSheet = ({ camera, gallery })=> {
           <Actionsheet.Item _text={{
             color: "blue.500"
           }}
-            // onPress={camera}
+            onPress={camera}
           >
             {'Take Photo'}
           </Actionsheet.Item>
@@ -32,7 +32,7 @@ const ActionSheet = ({ camera, gallery })=> {
           <Actionsheet.Item _text={{
             color: "blue.500"
           }}
-            // onPress={onClose}
+            onPress={onClose}
           >
             {'Cancle'}
           </Actionsheet.Item>
