@@ -5,7 +5,8 @@ export const Styles = StyleSheet.create({
     sectionContainer:{
         backgroundColor:"#ffffff",
         paddingTop:20,
-        paddingBottom:20
+        paddingBottom:20,
+        color:"#041944"
     },
     localizationContainer:{
         display:'flex',
