@@ -1,16 +1,16 @@
 import React from 'react';
-import { Button, Divider, Actionsheet, useDisclose, Center, NativeBaseProvider } from "native-base";
+import {  Divider, Actionsheet, useDisclose} from "native-base";
+import Camera from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
-const ActionSheet = ({ camera, gallery })=> {
+const ActionSheet = ({ camera, gallery, iconStyle })=> {
     const {
       isOpen,
       onOpen,
       onClose
     } = useDisclose();
     return <>
-      <Button onPress={onOpen}>{'Make Note'}</Button>
-  
+      <Camera onPress={onOpen} name="camera" size={35} style={iconStyle}/>
       <Actionsheet isOpen={isOpen} onClose={onClose}>
         <Actionsheet.Content>
           <Divider borderColor="gray.300" />

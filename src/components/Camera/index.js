@@ -11,8 +11,8 @@ const Camera = () => {
     <Image
       source={item.image}
       style={{
-        height: 100,
-        width: 100,
+        height: 50,
+        width: 50,
         borderRadius: 100,
         borderWidth: 2,
         borderColor: 'black',
