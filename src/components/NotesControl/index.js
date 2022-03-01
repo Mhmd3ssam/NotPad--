@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Styles } from './styles';
-import { NativeBaseProvider } from 'native-base';
 import { Text, View, Pressable } from 'react-native';
 
 import Mic from 'react-native-vector-icons/Feather';
