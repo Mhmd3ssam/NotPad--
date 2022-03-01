@@ -2,6 +2,11 @@ import { StyleSheet } from 'react-native';
 
 
 export const Styles = StyleSheet.create({
+    sectionContainer:{
+        backgroundColor:"#ffffff",
+        paddingTop:20,
+        paddingBottom:20
+    },
     localizationContainer:{
         display:'flex',
         flexDirection:'row-reverse',
@@ -9,7 +14,24 @@ export const Styles = StyleSheet.create({
         justifyContent:'space-between',
         paddingRight:20,
         paddingLeft:20,
-        backgroundColor:"#ffffff"
+        marginBottom:20,
+
+    },
+    languageContainer:{
+        height: 50,
+        width: 100,
+        borderRadius: 10,
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:"#f6f7fb",
+
+    },
+    language:{
+        color:"#041944",
+        fontSize: 15,
+    },
+    swap:{
+        color:"#1f1f1f",
     },
     controlContainer:{
         display:'flex',

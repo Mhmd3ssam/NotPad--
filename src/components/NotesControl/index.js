@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Styles } from './styles'
 import { NativeBaseProvider } from 'native-base';
 import { Text, View, Pressable } from 'react-native';
@@ -12,20 +13,21 @@ import useCamera from '../../Hooks/useCamera';
 
 const NotesControl = () => {
     const [takePhotoFromCamera, takePhotoFromGallery] = useCamera();
-
+    const navigation = useNavigation();
     return (
-        <NativeBaseProvider>
-            <View style={Styles.localizationContainer}>
-                <Pressable>
-                    <Text>
+        <NativeBaseProvider >
+            <View style={Styles.sectionContainer}> 
+                <View style={Styles.localizationContainer}>
+                <Pressable style={Styles.languageContainer}>
+                    <Text style={Styles.language}>
                         {'Arabic'}
                     </Text>
                 </Pressable>
-                <Pressable>
-                    <Swap name="swap" size={50}/>
+                <Pressable >
+                    <Swap name="swap" size={30} style={Styles.swap}/>
                 </Pressable>
-                <Pressable>
-                    <Text>
+                <Pressable style={Styles.languageContainer}>
+                    <Text style={Styles.language}>
                     {'English'}
                     </Text>
                 </Pressable>
@@ -41,10 +43,12 @@ const NotesControl = () => {
                 <Pressable style={Styles.micContainer}>
                     <Mic name="mic" size={50} style={Styles.mick} />
                 </Pressable>
-                <Pressable style={Styles.rocketAndCamContainer}>
+                <Pressable style={Styles.rocketAndCamContainer} onPress={()=>{navigation.navigate("TextNote");}}>
                     <Rocket name="rocket" size={35} style={Styles.rocket} />
                 </Pressable>
             </View >
+            </View>
+            
         </NativeBaseProvider>
 
     );
