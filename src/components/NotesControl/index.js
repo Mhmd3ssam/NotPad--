@@ -9,24 +9,29 @@ import Swap from 'react-native-vector-icons/AntDesign';
 
 import ActionSheet from '../ActionSheet';
 import useCamera from '../../Hooks/useCamera';
+import { useDispatch, useSelector} from 'react-redux';
+import { toggleText } from '../../Store/Actions';
 
 const NotesControl = () => {
     const [takePhotoFromCamera, takePhotoFromGallery] = useCamera();
+    const Toggle = useSelector(state => state.Localization);
     const navigation = useNavigation();
+    const dispatch = useDispatch();
+
     return (
         <View style={Styles.sectionContainer}>
             <View style={Styles.localizationContainer}>
                 <Pressable style={Styles.languageContainer}>
                     <Text style={Styles.language}>
-                        {'Arabic'}
+                        { Toggle?'Arabic':'العربية'}
                     </Text>
                 </Pressable>
                 <Pressable >
-                    <Swap name="swap" size={30} style={Styles.swap} />
+                    <Swap name="swap" size={30} style={Styles.swap} onPress={()=>{dispatch(toggleText(!Toggle))}} />
                 </Pressable>
                 <Pressable style={Styles.languageContainer}>
                     <Text style={Styles.language}>
-                        {'English'}
+                        { Toggle?'English':'الانجليزية'}
                     </Text>
                 </Pressable>
             </View>

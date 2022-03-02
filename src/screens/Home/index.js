@@ -2,28 +2,29 @@ import React from 'react';
 import { Styles } from './styles';
 import { Text, View } from 'react-native';
 import { NativeBaseProvider } from 'native-base';
+import { useSelector} from 'react-redux';
 
 
 
 import NotesControl from '../../components/NotesControl';
 
 const Home = () => {
-
+    const Toggle = useSelector(state => state.Localization);
     return (
         <NativeBaseProvider>
             <View style={Styles.HomeConatiner}>
                 <View style={Styles.textConatiner}>
                     <Text style={Styles.text}>
-                        {'Create and '}
+                        {Toggle?'Create and ':'انشأ'}
                     </Text>
                     <Text style={Styles.text}>
-                        {'design '}
+                        { Toggle?'design ':'و صمم'}
                     </Text>
                     <Text style={Styles.text}>
-                        {'your notes'}
+                        { Toggle?'your notes':'ملاحظاتك'}
                     </Text>
                     <Text style={Styles.text}>
-                        {'easily'}
+                        { Toggle?'easily':'بكل سهوله'}
                     </Text>
                 </View>
                 <NotesControl />
