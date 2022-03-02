@@ -5,8 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Camera = () => {
 
-  const Images = useSelector(state => state);
-  
+  const Images = useSelector(state => state.Images);
   const Item = ({ item }) => (
     <Image
       source={item.image}

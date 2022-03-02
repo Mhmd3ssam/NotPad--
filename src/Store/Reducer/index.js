@@ -1,10 +1,8 @@
-const initialState = [];
-export const reducer = (state = initialState, action)=>{
-    switch(action.type){
-        case'SAVE_Images' :return [
-            {
-            ...action.payload,
-          },...state];
-    }
-    return state;
-};
+import { combineReducers } from 'redux';
+import { imageReducer } from './imagesReducer';
+import { textReducer} from './textReducer';
+
+export  const reducer = combineReducers({
+    Images:imageReducer,
+    Text:textReducer
+});

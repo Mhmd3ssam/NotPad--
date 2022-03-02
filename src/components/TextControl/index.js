@@ -7,7 +7,7 @@ import Check from 'react-native-vector-icons/Feather';
 import Handwrite from 'react-native-vector-icons/Entypo';
 import Checkcircleo from 'react-native-vector-icons/AntDesign';
 
-const TextControl = () => {
+const TextControl = ({save}) => {
 
     return (
         <View >
@@ -20,7 +20,7 @@ const TextControl = () => {
                     <Checkcircleo name="checkcircleo" size={25} style={Styles.avatar}/>
                     <Text style={Styles.avatarText}>{'Checklist'}</Text>
                 </Pressable>
-                <Pressable>
+                <Pressable onPress={save}>
                     <Check name="check" size={35} style={Styles.avatar}/>
                 </Pressable>
             </View >

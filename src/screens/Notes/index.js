@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import Camera from '../../components/Camera';
+import Note from '../../components/Note';
 
 
 const Notes = ()=>{
@@ -8,6 +9,7 @@ const Notes = ()=>{
         <View>
             <Text>{'Notes'}</Text>
             <Camera />
+            <Note/>
         </View>
     )
 }
