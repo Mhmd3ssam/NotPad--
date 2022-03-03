@@ -4,17 +4,18 @@ import { Styles } from './styles';
 import { Text, View, Pressable } from 'react-native';
 import { Switch, VStack, NativeBaseProvider } from "native-base";
 
-import Mic from 'react-native-vector-icons/Feather';
 import Rocket from 'react-native-vector-icons/Entypo';
 import Swap from 'react-native-vector-icons/AntDesign';
 
 import ActionSheet from '../ActionSheet';
+import ModalBtn from '../Modal';
 import useCamera from '../../Hooks/useCamera';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleText } from '../../Store/Actions';
 
 const NotesControl = () => {
     const [takePhotoFromCamera, takePhotoFromGallery] = useCamera();
+
     const ToggleState = useSelector(state => state.Localization);
     const navigation = useNavigation();
     const dispatch = useDispatch();
@@ -22,13 +23,13 @@ const NotesControl = () => {
     const ToggleBtn = ({ Press }) => {
         return (
             <NativeBaseProvider>
-                    <VStack space={4} alignItems="center">
-                        <Switch offTrackColor="indigo.100" onTrackColor="indigo.200" onThumbColor="indigo.500" offThumbColor="indigo.50"  onToggle={()=>Press()} />
-                    </VStack>
+                <VStack space={4} alignItems="center">
+                    <Switch offTrackColor="indigo.100" onTrackColor="indigo.200" onThumbColor="indigo.500" offThumbColor="indigo.50" onToggle={() => Press()} />
+                </VStack>
             </NativeBaseProvider>
         );
     };
-    
+
     return (
         <View style={Styles.sectionContainer}>
             <View style={Styles.localizationContainer}>
@@ -54,9 +55,8 @@ const NotesControl = () => {
                         iconStyle={Styles.rocket}
                     />
                 </Pressable>
-                <Pressable style={Styles.micContainer}>
-                    <Mic name="mic" size={50} style={Styles.mick} />
-                </Pressable>
+
+                <ModalBtn />
                 <Pressable style={Styles.rocketAndCamContainer} onPress={() => { navigation.navigate("TextNote"); }}>
                     <Rocket name="rocket" size={35} style={Styles.rocket} />
                 </Pressable>

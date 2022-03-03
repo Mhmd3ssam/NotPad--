@@ -16,6 +16,8 @@ target 'TwitterFeed' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNAudioRecorderPlayer', :path => '../node_modules/react-native-audio-recorder-player'
+
   target 'TwitterFeedTests' do
     inherit! :complete
     # Pods for testing
