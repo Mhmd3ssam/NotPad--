@@ -1,32 +1,14 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, Text } from 'react-native';
-import { useSelector } from 'react-redux';
+import { Styles } from './styles';
+import {  ScrollView , Text } from 'react-native';
 
-
-const Note = () => {
-
-    const Notes = useSelector(state => state.Text);
-    const Item = ({ item }) => {
-        return (
-            <View>
-                <Text>{item.title}</Text>
-                <Text>{item.text}</Text>
-            </View>
-        )
-    };
-    const renderItem = ({ item }) => {
-        return <Item item={item} />        
-    };
-
-
+const Note = ({item}) => {
+    
     return (
-        <SafeAreaView >
-            <FlatList
-                data={Notes}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-            />
-        </SafeAreaView >
+        <ScrollView  style={Styles.noteContainer} >
+            <Text style={Styles.title}>{item.title}</Text>
+            <Text style={Styles.text}>{item.text}</Text>
+        </ScrollView  >
     )
 }
 

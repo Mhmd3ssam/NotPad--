@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
@@ -7,12 +7,13 @@ import useDay from './useDay';
 
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 
-export default function useCamera() {
+export default function useUpdateCamera() {
 
   const dispatch = useDispatch();
   const [day, timeOfDay] = useDay();
   const navigation = useNavigation();
-
+  const[cameraImage,setCameraImage] = useState();
+  const[galleryImage,setGalleryImage] = useState();
 
   const takePhotoFromCamera = () => {
     const options = {
@@ -33,15 +34,7 @@ export default function useCamera() {
         console.log('User tapped custom button: ', response.customButton);
       } else {
         const source = { uri: 'data:image/jpeg;base64,' + response.assets[0].base64 };
-        let cameraImage = {
-          id: Math.floor(Math.random() * 10),
-          image: source,
-          time:`${day} ${timeOfDay} Image`,
-          type:"image"
-
-        }
-        dispatch(saveImages(cameraImage));
-        navigation.navigate("Notes");
+        setCameraImage(source);
       }
     });
   }
@@ -66,20 +59,12 @@ export default function useCamera() {
       }
       else {
         const source = { uri: 'data:image/jpeg;base64,' + response.assets[0].base64 };
-        let gallaryImage = {
-          id: Math.floor(Math.random() * 10),
-          image: source,
-          time:`${day} ${timeOfDay} Image`,
-          type:"image"
-        }
-        dispatch(saveImages(gallaryImage));
-        navigation.navigate("Notes");
-
+        setGalleryImage(source);
       }
     })
   };
 
-  const features = [takePhotoFromCamera,  takePhotoFromGallery];
+  const features = [takePhotoFromCamera, cameraImage, takePhotoFromGallery,galleryImage];
 
   return features;
 }

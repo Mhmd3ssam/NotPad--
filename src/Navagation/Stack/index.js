@@ -5,6 +5,7 @@ import Check from 'react-native-vector-icons/Feather';
 
 import Taps from '../Taps';
 import TextNoteScreen from '../../screens/TextNote';
+import DetailsScreen from '../../screens/Details';
 const StackNavagation = () => {
     const Stack = createNativeStackNavigator();
     
@@ -13,6 +14,7 @@ const StackNavagation = () => {
         <Stack.Navigator>
             <Stack.Screen name="Taps" component={Taps} options={{ headerShown: false }} />
             <Stack.Screen name="TextNote" component={TextNoteScreen}options={{ headerShown: false }} />
+            <Stack.Screen name="Details" component={DetailsScreen}options={{ headerShown: false }} />
         </Stack.Navigator>
     )
 
