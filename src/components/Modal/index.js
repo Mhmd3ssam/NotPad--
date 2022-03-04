@@ -36,7 +36,7 @@ function ModalBtn() {
               navigation.navigate("Notes");
               onStartPlay();
             }}>
-              Save
+              {'Save'}
             </Button>
           </Button.Group>
         </Modal.Footer>
